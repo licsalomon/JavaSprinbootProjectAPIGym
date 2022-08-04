@@ -1,6 +1,7 @@
 package me.dio.academia.digital.service.impl;
 
 import me.dio.academia.digital.entity.PhysicalAssess;
+import me.dio.academia.digital.entity.Student;
 import me.dio.academia.digital.entity.form.PhysicalAssessForm;
 import me.dio.academia.digital.entity.form.PhysicalAssessUpdateForm;
 import me.dio.academia.digital.repository.PhysicalAssesRepository;
@@ -22,8 +23,13 @@ public class PhysicalAssesServiceImpl implements IPhysicalAssessService {
     @Override
     public PhysicalAssess create(PhysicalAssessForm form) {
     PhysicalAssess physicalAssess = new PhysicalAssess();
-    
+    Student student = studentRepository.findById(form.getStudentId()).get();
 
+    physicalAssess.setStudent(student);
+    physicalAssess.setWeight(form.getWeight());
+    physicalAssess.setHeight(form.getHeight());
+
+    return physicalAssesRepository.save(physicalAssess);
     }
 
     @Override

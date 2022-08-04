@@ -16,4 +16,6 @@ public interface IStudentService {
     void delete(Long id);
 
     List<PhysicalAssess> getAllPhysicalAssessId(Long id);
+
+//    List<PhysicalAssess> getAllPhysicalAssess();
 }

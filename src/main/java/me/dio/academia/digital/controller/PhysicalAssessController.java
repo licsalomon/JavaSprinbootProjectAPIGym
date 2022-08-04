@@ -8,6 +8,7 @@ import me.dio.academia.digital.service.impl.StudentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -21,7 +22,7 @@ public class PhysicalAssessController {
 //        return service.getAll();
 //    }
     @PostMapping
-    public PhysicalAssess create(@RequestBody PhysicalAssessForm form){
+    public PhysicalAssess create(@Valid @RequestBody PhysicalAssessForm form){
         return service.create(form);
     }
 }
